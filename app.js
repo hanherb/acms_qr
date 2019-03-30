@@ -31,10 +31,10 @@ app.use('/', route);
 app.use(express.static(__dirname + '/public',{ redirect : false }));
 app.use(express.static(__dirname + '/plugin',{ redirect : false }));
 
-// const privateKey = fs.readFileSync('/etc/letsencrypt/live/kliling.wearesqood.com/privkey.pem', 'utf8');
-// const certificate = fs.readFileSync('/etc/letsencrypt/live/kliling.wearesqood.com/fullchain.pem', 'utf8');
-const privateKey = fs.readFileSync('privkey.pem', 'utf8');
-const certificate = fs.readFileSync('fullchain.pem', 'utf8');
+const privateKey = fs.readFileSync('/etc/letsencrypt/live/kliling.wearesqood.com/privkey.pem', 'utf8');
+const certificate = fs.readFileSync('/etc/letsencrypt/live/kliling.wearesqood.com/fullchain.pem', 'utf8');
+// const privateKey = fs.readFileSync('privkey.pem', 'utf8');
+// const certificate = fs.readFileSync('fullchain.pem', 'utf8');
 
 const credentials = {
 	key: privateKey,
