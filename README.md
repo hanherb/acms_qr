@@ -1,2 +1,1 @@
-# acms_qr
-ACMS for QR Code Scan
+# This is "a CMS"
