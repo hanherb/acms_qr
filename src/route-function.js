@@ -67,6 +67,12 @@ exports.sendEmail = function(req, res) {
 	});
 }
 
+exports.getBio = function(req, res) {
+	mongo.mongoBio("find", {}, function(response) {
+		res.json(response);
+	});
+}
+
 exports.addBio = function(req, res) {
 	console.log(req.body);
 	if(req.body[0]) {
@@ -80,8 +86,5 @@ exports.addBio = function(req, res) {
 }
 
 exports.logout = function(req, res) {
-	res.clearCookie("jwtToken");
-	req.session.destroy(function() {
-		res.redirect('/');
-	});
+	res.json(1);
 }

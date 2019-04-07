@@ -19,6 +19,8 @@ router.route('/login-user').post(function(req, res) {rf.loginUser(req, res)});
 
 router.route('/send-email').post(function(req, res) {rf.sendEmail(req, res)});
 
+router.route('/get-bio').get(function(req, res) {rf.getBio(req, res)});
+
 router.route('/add-bio').post(function(req, res) {rf.addBio(req, res)});
 
 router.route('/logout').get(function(req, res) {rf.logout(req, res)});

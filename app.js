@@ -10,6 +10,8 @@ var mongo = require('./src/mongo-connect');
 var fs = require('fs');
 var cors = require('cors');
 var middle = require('./src/middleware');
+var express_graphql = require('express-graphql');
+var graphvar = require('./src/graphql');
 
 app.use(cors());
 
@@ -25,6 +27,12 @@ app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Credentials', true);
     next();
 });
+
+app.use('/graphql', cors(), express_graphql({
+	schema: graphvar.schema,
+	rootValue: graphvar.root,
+	graphiql: true
+}));
 
 app.use('/', route);
 
