@@ -75,9 +75,8 @@ function logger(req, res, next) {
 }
 
 exports.beforeEndPoint = function(req, res, next) {
-	if(req.path != '/login-user' && req.path != '/register-user') {
+	if(req.path != '/login-user' && req.path != '/register-user' && req.path != '/logout') {
 		// console.log("authorization headers: " + req.headers.authorization);
-		// console.log("user session headers: " + req.headers.user_session);
 		const bearerHeader = req.headers['authorization'];
 		if(typeof bearerHeader !== 'undefined') {
 			const bearer = bearerHeader.split(' ');
