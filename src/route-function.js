@@ -45,14 +45,15 @@ exports.sendEmail = function(req, res) {
 	  }
 	});
 
-	let text = 'Full Name: ' + req.body.fullname + '\n' +
-		'Age: ' + req.body.age + '\n' +
-		'Sex: ' + req.body.sex + '\n' +
-		'QR Code: ' + req.body.result + '.';
+	let text = 'Full Name: ' + req.body[0].fullname + '\n' +
+		'Age: ' + req.body[0].age + '\n' +
+		'Sex: ' + req.body[0].sex + '\n' +
+		'QR Code: ' + req.body[0].result + '.';
 
 	let mailOptions = {
 	  from: 'hanindyo.herbowo@gmail.com',
-	  to: 'daa.isme@gmail.com, ' + req.body.email,
+	  // to: 'daa.isme@gmail.com, ' + req.body[0].email,
+	  to: req.body[0].email,
 	  subject: 'This is your biodata',
 	  text: text
 	};
@@ -74,7 +75,6 @@ exports.getBio = function(req, res) {
 }
 
 exports.addBio = function(req, res) {
-	console.log(req.body);
 	if(req.body[0]) {
 		mongo.mongoBio("insert", req.body, function(response) {
 			res.json(response);
